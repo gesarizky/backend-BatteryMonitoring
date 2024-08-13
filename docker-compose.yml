@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  # Service
+  battery-monitoring-app:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    # Name of the container
+    container_name: battery-monitoring
+    # Restart the container always
+    restart: always
+    # Environment variables
+    env_file:
+      - .env
+    # Expose the port
+    ports:
+      - "${PORT}:${PORT}"

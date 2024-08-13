@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "804f5413-3c89-4f7c-89f5-ceeda6b39fae",
+		"name": "battery monitoring system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26190900"
+	},
+	"item": [
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "create Talis5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"serial\",\r\n    \"talis_id\":\"battery1\",\r\n    \"device_ip\":\"192.169.100.200\",\r\n    \"port\":\"502\",\r\n    \"slaves\":[1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/setting/createTalis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"setting",
+								"createTalis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete talis",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"talis_id\":\"battery1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/setting/deleteTalis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"setting",
+								"deleteTalis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Talis5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/setting/Talis?talis_id=talis238",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"setting",
+								"Talis"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "perpage",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "talis_id",
+									"value": "battery1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "perpage",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Rack",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/specificRack?talis_id=talis232",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"specificRack"
+							],
+							"query": [
+								{
+									"key": "talis_id",
+									"value": "battery1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Frame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/specificFrame?pcb_barcode=pcb1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"specificFrame"
+							],
+							"query": [
+								{
+									"key": "pcb_barcode",
+									"value": "pcb1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RUN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/run",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"run"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
